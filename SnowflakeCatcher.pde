@@ -1,3 +1,7 @@
+Snowflake  [] snow = new Snowflake[50];
+
+
+
 void setup()
 {
   //your code here
@@ -6,11 +10,26 @@ void setup()
   fill(110, 60, 30);
   rect(0, 290, 300, 10);
   fill(0);
-  rect(125, 390, 50, 20);
+  rect(120, 290, 50, 20);
+  rect(-100, -100, 400, 200);
 }
 void draw()
 {
   //your code here
+for (int i = 0; i < 50; i ++) {
+    snow[i] = new Snowflake();
+
+    snow[i].erase();
+    snow[i].lookDown();
+    snow[i].move();
+
+    snow[i].wrap();
+    snow[i].show();
+
+  
+
+  }
+
 }
 void mouseDragged()
 {
@@ -27,7 +46,7 @@ class Snowflake
   {
     //class member variable initializations
     sX = (int)(Math.random()*301);
-    sY = (int)(Math.random()*301);
+    sY = 5;
     isMoving = true;
   }
   void show()
@@ -39,7 +58,7 @@ class Snowflake
   void lookDown()
   {
     //your code here
-    if (get(sX, sY +1) != color(0)) {
+    if ((get(sX, sY +1) != color(0, 0, 0)) || (get(sX, sY +1) != color(255)) )  {
       isMoving = false;
     }
     else {
@@ -64,6 +83,11 @@ class Snowflake
   void wrap()
   {
     //your code here
+    if (sY > 300) {
+      sY = 0;
+      sX = (int)(Math.random()*300);
+
+    }
   }
 }
 
