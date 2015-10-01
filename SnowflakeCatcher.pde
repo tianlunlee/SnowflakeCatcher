@@ -1,4 +1,4 @@
-Snowflake  [] snow = new Snowflake[500];
+Snowflake  [] snow = new Snowflake[100];
 
 
 int i;
@@ -11,7 +11,7 @@ void setup()
 
 
 
-for ( i = 0; i < 500; i++) {
+for ( i = 0; i < 100; i++) {
     snow[i] = new Snowflake();
   }
     
@@ -29,7 +29,7 @@ void draw()
     fill(0);
   rect(120, 290, 50, 20);
 
-for ( i = 0; i < 500; i++) {
+for ( i = 0; i < 100; i++) {
 
     snow[i].erase();
     snow[i].lookDown();
