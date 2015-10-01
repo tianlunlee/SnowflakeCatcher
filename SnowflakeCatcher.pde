@@ -1,4 +1,4 @@
-Snowflake  [] snow = new Snowflake[200];
+Snowflake  [] snow = new Snowflake[500];
 
 
 int i;
@@ -11,7 +11,7 @@ void setup()
 
 
 
-for ( i = 0; i < 200; i++) {
+for ( i = 0; i < 500; i++) {
     snow[i] = new Snowflake();
   }
     
@@ -23,12 +23,13 @@ for ( i = 0; i < 200; i++) {
 void draw()
 {
   //your code here
+
   fill(110, 60, 30);
   rect(0, 290, 300, 10);
     fill(0);
   rect(120, 290, 50, 20);
-  rect(-100, -100, 400, 200);
-for ( i = 0; i < 200; i++) {
+
+for ( i = 0; i < 500; i++) {
 
     snow[i].erase();
     snow[i].lookDown();
@@ -37,10 +38,21 @@ for ( i = 0; i < 200; i++) {
     snow[i].wrap();
     snow[i].show();
 }
+  if (mousePressed == true) {
+    mouseDragged();
+  }
 }
 void mouseDragged()
 {
   //your code here
+
+  fill(255, 0, 0);
+  noStroke();
+  ellipse(mouseX, mouseY, 5, 5);
+  if (mousePressed == true && mouseButton == RIGHT) {
+    background(0);
+  }
+
 }
 
 class Snowflake
@@ -60,13 +72,22 @@ class Snowflake
   {
     //your code here
     fill(255);
-    ellipse(sX, sY, 5, 5);
+    stroke(0);
+    ellipse(sX, sY, 2, 2);
   }
   void lookDown()
   {
     //your code here
-    if ((get(sX, sY +5) == color(110, 60, 30)) && (get(sX, sY +2) != color(255)) )  {
+    if ((get(sX, sY +2) != color(0)))  {
       isMoving = false;
+      if ((get(sX, sY +2) != color(255) ) && sY > 250) {
+      isMoving = false;
+      noStroke();
+      fill(250, 250, 255);
+      rect(sX, sY, 2, 2 ,80);
+      sX = (int)(Math.random()*301);
+      sY = 0;
+    }
     }
     else {
       isMoving = true;
@@ -76,7 +97,7 @@ class Snowflake
   {
     //your code here
     fill(0);
-    ellipse(sX, sY, 5, 5);
+    ellipse(sX-2, sY-2, 2, 2);
 
   }
   void move()
