@@ -6,6 +6,7 @@ void setup()
 {
   //your code here
   background(0);
+  frameRate(10);
   size(300, 300);
 
 
