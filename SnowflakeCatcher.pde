@@ -74,14 +74,14 @@ class Snowflake
     //your code here
     fill(255);
     stroke(0);
-    ellipse(sX, sY, 2, 2);
+    ellipse(sX, sY, 3, 3);
   }
   void lookDown()
   {
     //your code here
-    if ((get(sX, sY +2) != color(0)))  {
+    if ((get(sX, sY +3) != color(0)))  {
       isMoving = false;
-      if ((get(sX, sY +2) != color(255) ) && sY > 250) {
+      if ((get(sX, sY +3) != color(255) ) && sY > 250) {
       isMoving = false;
       noStroke();
       fill(250, 250, 255);
@@ -98,7 +98,7 @@ class Snowflake
   {
     //your code here
     fill(0);
-    ellipse(sX-2, sY-2, 2, 2);
+    ellipse(sX-2, sY-2, 3, 3);
 
   }
   void move()
